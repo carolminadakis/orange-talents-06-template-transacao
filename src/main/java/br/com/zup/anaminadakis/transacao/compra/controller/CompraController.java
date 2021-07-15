@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/cartoes")
 public class CompraController {
 
     @Autowired
@@ -27,7 +29,7 @@ public class CompraController {
     TransacaoRepository transacaoRepository;
 
 
-    @GetMapping("/cartoes/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> buscaUtlimasCompras(@PathVariable String id) {
 
         Optional<Cartao> cartaoVerificado = cartaoRepository.findById(id);
